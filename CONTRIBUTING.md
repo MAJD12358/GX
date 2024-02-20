@@ -1,0 +1,3 @@
+# Contributing to My Awesome GX Language
+
+Thank you for considering contributing to My Awesome GX Language! Please follow these guidelines...
