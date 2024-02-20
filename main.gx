@@ -1,6 +1,6 @@
 [$Starting point #home.Gx]
 $app#name[
-  "MyApp"
+  "MyGxApp"
 ]
 
 [UI
@@ -12,29 +12,17 @@ $app#name[
     +children#
       $header[
         +text#
-          "Header Text"
+          "Welcome to GX Language!"
         +style#
           $fontSize: "24px"
-          $color: $primaryColor
-        +events#
-          $onClick[
-            +code#
-              alert("Header Clicked!")
-          ]
+          $color: $PRIMARY_COLOR
       ]
       $content[
         +text#
-          "Hello, World!"
+          "Start coding with GX today!"
         +style#
           $fontSize: "18px"
-          $color: $secondaryColor
-      ]
-      $image[
-        +src#
-          "logo.png"
-        +style#
-          $width: "100%"
-          $height: "auto"
+          $color: $SECONDARY_COLOR
       ]
   ]
 ]
