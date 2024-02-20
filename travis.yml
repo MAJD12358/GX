@@ -1,7 +1,7 @@
 version: '1.0.0'
 services:
   gx :
-    image: MAJD12358/gx-runtime:latest
+    image: https://github.com/MAJD12358
     build:
       context: .
     volumes:
