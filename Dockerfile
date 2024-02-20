@@ -5,7 +5,7 @@ FROM gx-runtime:latest
 WORKDIR /app
 
 # Clone the GX repository from GitHub
-RUN git clone https://github.com/MAJD12358/GX .
+RUN git clone https://github.com/MAJD12358/GX
 
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
