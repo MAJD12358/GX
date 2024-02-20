@@ -8,10 +8,10 @@ WORKDIR /app
 COPY . /app
 
 # Define environment variable for language name
-ENV LANGUAGE_NAME gx
+ENV  gx
 
 # Define environment variable for image URL
-ENV LANGUAGE_IMAGE_URL logo.png
+ENV LANGUAGE_IMAGE_logo.png
 
 # ... Add any additional configurations or dependencies here ...
 
