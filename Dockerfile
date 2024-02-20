@@ -11,7 +11,7 @@ COPY . /app
 ENV LANGUAGE_NAME gx
 
 # Define environment variable for image URL
-ENV LANGUAGE_IMAGE_URL https://path/to/gx_image.png
+ENV LANGUAGE_IMAGE_URL logo.png
 
 # ... Add any additional configurations or dependencies here ...
 
