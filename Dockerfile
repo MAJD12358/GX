@@ -4,15 +4,8 @@ FROM gx-runtime:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy all files with .txt extension
-COPY *.txt /app/
-
-# Copy JavaScript and TypeScript files
-COPY *.js /app/
-COPY *.ts /app/
-
-# Clone the GX repository from GitHub
-RUN git clone https://github.com/MAJD12358/GX .
+# Copy the entire project to the container
+COPY . .
 
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
