@@ -1,0 +1,22 @@
+name: Build and Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_HUB_GX }}:latest .
+
+      - name: Push Docker image
+        run: |
+          echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+          docker tag ${{ secrets.DOCKER_HUB_GX }}:latest ${{ secrets.DOCKER_HUB_GX }}:latest
+          docker push ${{ secrets.DOCKER_HUB_GX }}:latest
+          
