@@ -1,0 +1,14 @@
+$resources[
+  $welcomeMessage[
+    +en#
+      "Welcome to our application!"
+    +ar#
+      "مرحبًا في تطبيقنا!"
+  ]
+  $errorPrompt[
+    +en#
+      "An error occurred. Please try again later."
+    +ar#
+      "حدث خطأ. الرجاء المحاولة مرة أخرى لاحقًا."
+  ]
+]
