@@ -24,6 +24,10 @@ $app#name[
           $fontSize: "18px"
           $color: $SECONDARY_COLOR
       ]
+      $logo[
+        +image#
+          "logo.png"
+      ]
   ]
 ]
 [#End point Gx$]
