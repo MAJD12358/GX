@@ -1,0 +1,10 @@
+[Tests]
+$testAddition[
+  +code#
+    assert add(2, 3) == 5
+]
+
+$testFactorial[
+  +code#
+    assert factorial(5) == 120
+]
