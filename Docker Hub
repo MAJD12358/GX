@@ -1,0 +1,3 @@
+docker build -t your-username/gx-runtime:latest .
+docker push your-username/gx-runtime:latest
+
