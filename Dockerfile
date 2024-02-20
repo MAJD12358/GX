@@ -7,13 +7,15 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Define environment variable for language name
-ENV LANGUAGE_NAME Gx
+# Define environment variables for language name and image URL
+ENV LANGUAGE_NAME gx
+ENV LANGUAGE_IMAGE_URL https://path/to/gx_image.png
 
-# Define environment variable for language image URL
-ENV LANGUAGE_IMAGE_URL logo.png
+# Define environment variables for colors
+ENV PRIMARY_COLOR_GREEN "#00ff00"
+ENV SECONDARY_COLOR_PURPLE "#800080"
 
 # ... Add any additional configurations or dependencies here ...
 
 # Command to run when the container starts
-CMD ["gx", "main.gx"]
+CMD ["python", "main.gx"]
