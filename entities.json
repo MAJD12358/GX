@@ -1,0 +1,20 @@
+{
+  "entities": [
+    {
+      "name": "User",
+      "fields": [
+        {"name": "id", "type": "int"},
+        {"name": "username", "type": "string"},
+        {"name": "email", "type": "string"}
+      ]
+    },
+    {
+      "name": "Product",
+      "fields": [
+        {"name": "id", "type": "int"},
+        {"name": "name", "type": "string"},
+        {"name": "price", "type": "float"}
+      ]
+    }
+  ]
+}
