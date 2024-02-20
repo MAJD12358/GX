@@ -11,14 +11,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and Test
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to GitHub Packages Docker Registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Build and Push Docker image
         run: |
-          # Add commands to build and test your package
+          docker buildx create --use
+          docker buildx build --platform linux/amd64,linux/arm64 -t docker.pkg.github.com/${{ github.repository }}/${{ env.PACKAGE_NAME }}:latest .
+          docker push docker.pkg.github.com/${{ github.repository }}/${{ env.PACKAGE_NAME }}:latest
 
       - name: Publish Package
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-          gx publish --version 1.0.0 --visibility public
+          echo "version=1.0.0" > .gx-version
+          echo "visibility=public" > .gx-visibility
+          gx publish
         env:
           PACKAGE_NAME: gx-awesome-package
           
