@@ -1,0 +1,31 @@
+# Example
+
+[$Starting point #home.Gx]
+$app#name[
+  "MyGxApp"
+]
+
+[UI
+  $layout[
+    +type#
+      "flex"
+    +direction#
+      "column"
+    +children#
+      $header[
+        +text#
+          "Welcome to Gx Language!"
+        +style#
+          $fontSize: "24px"
+          $color: "#3498db"
+      ]
+      $content[
+        +text#
+          "Start coding with Gx today!"
+        +style#
+          $fontSize: "18px"
+          $color: "#2ecc71"
+      ]
+  ]
+]
+[#End point Gx$]
