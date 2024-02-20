@@ -1,0 +1,12 @@
+$database#[
+  +url#
+    "mongodb://localhost:27017/mydatabase"
+  +username#
+    "admin"
+  +password#
+    "securepassword"
+]
+
+$app#version[
+  "1.0.0"
+]
