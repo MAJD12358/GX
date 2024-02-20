@@ -1,0 +1,41 @@
+[$Starting point #home.Gx]
+$app#name[
+  "MyApp"
+]
+
+[UI
+  $layout[
+    +type#
+      "flex"
+    +direction#
+      "column"
+    +children#
+      $header[
+        +text#
+          "Header Text"
+        +style#
+          $fontSize: "24px"
+          $color: $primaryColor
+        +events#
+          $onClick[
+            +code#
+              alert("Header Clicked!")
+          ]
+      ]
+      $content[
+        +text#
+          "Hello, World!"
+        +style#
+          $fontSize: "18px"
+          $color: $secondaryColor
+      ]
+      $image[
+        +src#
+          "logo.png"
+        +style#
+          $width: "100%"
+          $height: "auto"
+      ]
+  ]
+]
+[#End point Gx$]
