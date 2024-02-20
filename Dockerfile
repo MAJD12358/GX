@@ -4,11 +4,8 @@ FROM gx-runtime:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Copy the logo.png file to /app
-COPY logo.png /app/logo.png
+# Clone the GX repository from GitHub
+RUN git clone https://github.com/MAJD12358/GX .
 
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
@@ -17,7 +14,7 @@ ARG GX_VERSION="1.0.0"
 
 # Define environment variables for language name, image URL, colors, and version
 ENV LANGUAGE_NAME gx
-ENV LANGUAGE_IMAGE_URL https://path/to/gx_image.png
+ENV LANGUAGE_IMAGE_URL png.png
 ENV PRIMARY_COLOR $PRIMARY_COLOR_GREEN
 ENV SECONDARY_COLOR $SECONDARY_COLOR_PURPLE
 ENV GX_VERSION $GX_VERSION
