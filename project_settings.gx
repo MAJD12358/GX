@@ -1,0 +1,10 @@
+$memoryAllocation[
+  +heapSize
+    "256MB"
+  +stackSize
+    "32MB"
+]
+
+$project#name[
+  "MyGXProject"
+]
