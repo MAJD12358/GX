@@ -1,0 +1,9 @@
+// ملف gx.json
+{
+  "name": "gx-awesome-package",
+  "version": "1.0.0",
+  "description": "حزمة GX رائعة",
+  "dependencies": {
+    "gx-utils": "^1.2.0"
+  }
+}
