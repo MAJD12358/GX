@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM GX 1.0.0
 
 WORKDIR /app
 
@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "main.gx"]
+CMD ["GX", "main.gx"]
