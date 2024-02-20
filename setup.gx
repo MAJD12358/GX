@@ -1,0 +1,16 @@
+[$Package #mine.Gx]
+$version[
+  "1.0.0"
+]
+
+$author[
+  "Your Name"
+]
+
+$description[
+  "Description of your Gx package."
+]
+
+$keywords[
+  "gx", "package"
+]
