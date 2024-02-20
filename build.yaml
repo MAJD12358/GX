@@ -1,3 +1,4 @@
+# ملف العمليات (build.yaml)
 name: Build and Publish
 on:
   push:
@@ -11,12 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build Docker image
-        run: docker build -t gx:latest .
-
-      - name: Push Docker image
+      - name: Build and Test
         run: |
-          echo ${{ secrets.GX_DOCKER_TOKEN }} | docker login -u ${{ secrets.GX_DOCKER_USERNAME }} --password-stdin
-          docker tag gx:latest gx/${{ github.repository_name }}:latest
-          docker push gx/${{ github.repository_name }}:latest
+          # Add commands to build and test your package
+
+      - name: Publish Package
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+          gx publish --version 1.0.0 --visibility public
+        env:
+          PACKAGE_NAME: gx-awesome-package
           
