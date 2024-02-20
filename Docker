@@ -1,1 +1,2 @@
 docker build -t gx-runtime:latest .
+docker run -it --rm gx-runtime:latest
