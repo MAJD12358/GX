@@ -1,6 +1,6 @@
-version: '3'
+version: '1.0.0'
 services:
-  gx-app:
+  gx :
     image: MAJD12358/gx-runtime:latest
     build:
       context: .
