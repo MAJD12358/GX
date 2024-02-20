@@ -1,0 +1,6 @@
+<!ELEMENT entities (entity*)>
+<!ELEMENT entity (name, fields)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT fields (field*)>
+<!ELEMENT field (name, type)>
+<!ELEMENT type (#PCDATA)>
