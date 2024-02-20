@@ -4,7 +4,14 @@ FROM gx-runtime:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Clone the GX repository from the organization on GitHub
+# Copy all files with .txt extension
+COPY *.txt /app/
+
+# Copy JavaScript and TypeScript files
+COPY *.js /app/
+COPY *.ts /app/
+
+# Clone the GX repository from GitHub
 RUN git clone https://github.com/MAJD12358/GX .
 
 # Define build-time arguments for colors and version
@@ -14,7 +21,7 @@ ARG GX_VERSION="1.0.0"
 
 # Define environment variables for language name, image URL, colors, and version
 ENV LANGUAGE_NAME gx
-ENV LANGUAGE_IMAGE_URL logo.png
+ENV LANGUAGE_IMAGE_URL https://path/to/gx_image.png
 ENV PRIMARY_COLOR $PRIMARY_COLOR_GREEN
 ENV SECONDARY_COLOR $SECONDARY_COLOR_PURPLE
 ENV GX_VERSION $GX_VERSION
