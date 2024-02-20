@@ -4,8 +4,14 @@ FROM gx-runtime:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Clone the GX repository from GitHub
-RUN git clone https://github.com/MAJD12358/GX
+# Set up GitHub token
+ARG GITHUB_TOKEN
+ENV GITHUB_TOKEN $GITHUB_TOKEN
+
+# Clone the GX repository from GitHub using token
+RUN git clone https://$GITHUB_TOKEN@github.com/MAJD12358/GX .
+
+# ...
 
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
