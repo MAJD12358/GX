@@ -1,4 +1,4 @@
-# My Gx Language
+# Gx Language
 
 ![Gx Logo](path/to/gx_logo.png)
 
