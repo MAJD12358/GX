@@ -1,5 +1,3 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.vscode/
+# Add files or directories to be ignored by Git
+node_modules/
+dist/
