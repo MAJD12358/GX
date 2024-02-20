@@ -1,0 +1,2 @@
+docker tag gx-runtime:latest your-username/gx-runtime:latest
+docker push your-username/gx-runtime:latest
