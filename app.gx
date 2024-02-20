@@ -1,0 +1,203 @@
+[$Starting point #home.Gx]
+$app#name[
+  "MyApp"
+]
+
+&design[
+  +colorScheme#
+    $primaryColor
+    $secondaryColor
+  +font#
+    $fontFamily
+    $fontSize
+]
+
+[Firebase
+  $initializeApp[
+    +config#
+      $apiKey: "your_api_key"
+      $authDomain: "your_auth_domain"
+      $databaseURL: "your_database_url"
+      $projectId: "your_project_id"
+      $storageBucket: "your_storage_bucket"
+      $messagingSenderId: "your_messaging_sender_id"
+      $appId: "your_app_id"
+  ]
+]
+
+[UI
+  $layout[
+    +type#
+      "flex"
+    +direction#
+      "column"
+    +children#
+      $header[
+        +text#
+          "Header Text"
+        +style#
+          $fontSize: "24px"
+          $color: $primaryColor
+        +events#
+          $onClick[
+            +code#
+              alert("Header Clicked!")
+          ]
+      ]
+      $content[
+        +text#
+          "Hello, World!"
+        +style#
+          $fontSize: "18px"
+          $color: $secondaryColor
+      ]
+      $videoPlayer[
+        +src#
+          "https://example.com/video.mp4"
+        +controls
+      ]
+      $link[
+        +text#
+          "Visit our website"
+        +href#
+          "https://example.com"
+        +target#
+          "_blank"
+      ]
+      $downloadButton[
+        +text#
+          "Download File"
+        +url#
+          "https://example.com/file.zip"
+      ]
+      $statusIndicator[
+        +text#
+          "Loading..."
+        +style#
+          $color: "orange"
+      ]
+  ]
+]
+
+[Data
+  $fetchData[
+    +url#
+      "https://api.example.com/data"
+    +method#
+      "GET"
+    +headers#
+      $authorization: "Bearer your_token"
+    +success#
+      +code#
+        $statusIndicator.text = "Data fetched successfully"
+        console.log("Data fetched successfully")
+    +error#
+      +code#
+        $statusIndicator.text = "Error fetching data"
+        console.error("Error fetching data")
+  ]
+]
+
+[Authentication
+  $signIn[
+    +email#
+      "user@example.com"
+    +password#
+      "user_password"
+    +success#
+      +code#
+        console.log("Sign in successful")
+    +error#
+      +code#
+        console.error("Sign in failed")
+  ]
+]
+
+[Functions
+  $addNumbers[
+    +params#
+      $num1
+      $num2
+    +code#
+      $result = $num1 + $num2
+      return $result
+  ]
+
+  $calculateFactorial[
+    +param#
+      $number
+    +code#
+      if ($number <= 1) {
+        return 1
+      } else {
+        return $number * $calculateFactorial($number - 1)
+      }
+  ]
+]
+
+[Events
+  $onTimerTick[
+    +interval#
+      1000
+    +code#
+      console.log("Timer ticked!")
+  ]
+]
+
+[Animation
+  $animateElement[
+    +element#
+      $header
+    +animationType#
+      "fadeIn"
+    +duration#
+      1000
+  ]
+]
+
+[Installation
+  $installApp[
+    +platform#
+      "iOS"
+    +url#
+      "https://example.com/ios-app"
+  ]
+
+  $installApp[
+    +platform#
+      "Android"
+    +url#
+      "https://example.com/android-app"
+  ]
+]
+
+[ARIntegration
+  $showARScene[
+    +sceneID#
+      "example_scene"
+  ]
+]
+
+[AdvancedUI
+  $carousel[
+    +items#
+      ["image1.jpg", "image2.jpg", "image3.jpg"]
+    +autoplay
+  ]
+]
+
+[Conditional
+  $checkEven[
+    +param#
+      $number
+    +code#
+      if ($number % 2 == 0) {
+        +text#
+          "Even"
+      } else {
+        +text#
+          "Odd"
+      }
+  ]
+]
+[#End point Gx$]
