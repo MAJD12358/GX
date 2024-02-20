@@ -1,4 +1,10 @@
 ```markdown
+# My Gx Language
+
+![Gx Logo](path/to/gx_logo.png)
+
+Welcome to My Gx Language! This language is designed for...
+
 # GX Programming Language
 
 GX is an advanced programming language designed for diverse application development. It features a flexible design for user interfaces, Firebase support for data management and authentication, integration with Augmented Reality (AR) technologies, and capabilities for handling video and file downloads.
