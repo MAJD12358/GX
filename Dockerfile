@@ -1,26 +1,22 @@
- # Stage 1: Build GX language
-FROM gx-runtime:latest as builder
+ # Stage 1: Build GX language from source
+FROM ubuntu:latest as builder
+
+# Install build dependencies
+RUN apt-get update && \
+    apt-get install -y build-essential git && \
+    apt-get clean
 
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Clone the GX language repository
+RUN git clone https://github.com/GX-Lang/GX.git .
 
-# Install build dependencies (if needed)
-RUN apt-get update && \
-    apt-get install -y build-essential && \
-    apt-get clean
-
-# Install additional dependencies for GX build
-RUN apt-get install -y some-dependency && \
-    apt-get clean
-
-# Build GX language with specific configuration
-RUN gx build --config=config/gx-config.yaml
+# Build GX language
+RUN make build
 
 # Stage 2: Create final image
-FROM gx-runtime:latest
+FROM ubuntu:latest
 
 # Set the working directory to /app
 WORKDIR /app
@@ -34,13 +30,5 @@ EXPOSE 8080
 # Set environment variables
 ENV GX_ENV=production
 
-# Add additional configurations or dependencies
-RUN apt-get update && \
-    apt-get install -y some-runtime-dependency && \
-    apt-get clean
-
-# Set up additional runtime configurations
-COPY config/runtime-config.yaml /app/config/runtime-config.yaml
-
 # Command to run when the container starts
-CMD ["gx"]
+CMD ["./gx"]
