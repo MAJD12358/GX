@@ -1,0 +1,32 @@
+[$GX Definitions]
+
+# تعريف متغير
+$variable#[
+  +name#
+    "myVariable"
+  +type#
+    "string"
+  +defaultValue#
+    "Hello, GX!"
+]
+
+# تعريف دالة
+$function#[
+  +name#
+    "printMessage"
+  +parameters#
+    $message[
+      +name#
+        "message"
+      +type#
+        "string"
+    ]
+  +returnType#
+    "void"
+  +body#
+    [
+      # الكود هنا
+      Print(message)
+    ]
+]
+[#End Definitions$]
