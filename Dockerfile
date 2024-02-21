@@ -1,5 +1,5 @@
-# Use an official Gx runtime as a base image
-FROM gx-runtime:latest
+# Stage 1: Build GX language
+FROM gx-runtime:latest as builder
 
 # Set the working directory to /app
 WORKDIR /app
@@ -7,19 +7,17 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Copy GX language definitions
-COPY gx_definition.gx /app/gx_definition.gx
+# Build GX language
+RUN gx build
 
-# Copy main GX code
-COPY main.gx /app/main.gx
+# Stage 2: Create final image
+FROM gx-runtime:latest
 
-# Install GX
-RUN apt-get update && \
-    apt-get install -y gx
+# Set the working directory to /app
+WORKDIR /app
 
-# ... Add any additional configurations or dependencies here ...
+# Copy the GX language artifacts from the builder stage
+COPY --from=builder /app /app
 
 # Command to run when the container starts
 CMD ["gx"]
-RUN apt-get update && \
-    apt-get install -y gx
