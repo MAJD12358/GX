@@ -24,5 +24,14 @@ ENV GX_VERSION $GX_VERSION
 
 # ... Add any additional configurations or dependencies here ...
 
-# Command to run when the container starts
+# Build stage
+FROM gcdplus:latest as builder
+WORKDIR /app
+COPY . /app
+RUN some_build_command
+
+# Runtime stage
+FROM gcdplus:latest
+WORKDIR /app
+COPY --from=builder /app /app
 CMD ["gcdplus", "main.gx"]
