@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  gx-app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./gx_definition.gx:/app/gx_definition.gx
+      - ./main.gx:/app/main.gx
+    command: ["gx"]
