@@ -13,8 +13,13 @@ COPY gx_definition.gx /app/gx_definition.gx
 # Copy main GX code
 COPY main.gx /app/main.gx
 
+# Install GX
+RUN apt-get update && \
+    apt-get install -y gx
+
 # ... Add any additional configurations or dependencies here ...
-RUN apt-get install -y gx
 
 # Command to run when the container starts
 CMD ["gx"]
+RUN apt-get update && \
+    apt-get install -y gx
