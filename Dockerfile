@@ -47,5 +47,8 @@ COPY config/runtime-config.yaml /app/config/runtime-config.yaml
 RUN useradd -m -s /bin/bash gcdplususer
 USER gcdplususer
 
+# Replace instances of "GX" with "GCD+" in specific files
+RUN find /app -type f -name "*.gx" -exec sed -i 's/GX/GCD+/g' {} +
+
 # Command to run when the container starts
 CMD ["./gcdplus"]
