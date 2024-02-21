@@ -1,0 +1,29 @@
+"editor.tokenColorCustomizations": {
+  "textMateRules": [
+    {
+      "scope": [
+        "keyword.gx",
+        "variable.gx",
+        "string.gx",
+        "comment.gx",
+        "constant.gx",
+        "entity.gx",
+        "support.gx",
+        "meta.gx"
+      ],
+      "settings": {
+        "foreground": "#00ff00" // اللون الأخضر
+      }
+    },
+    {
+      "scope": [
+        "invalid.gx",
+        "invalid.illegal.gx"
+      ],
+      "settings": {
+        "foreground": "#ffff00" // اللون الأصفر
+      }
+    }
+  ]
+}
+
