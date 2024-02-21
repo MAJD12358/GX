@@ -1,0 +1,47 @@
+# ملف تكوين التشغيل المتقدم لتطبيق GX
+
+database:
+  host: "localhost"
+  port: 5432
+  username: "gxuser"
+  password: "securepassword"
+  name: "my_database"
+  connection_pool_size: 20
+  max_open_connections: 50
+
+logging:
+  level: "debug"
+  file: "/var/log/gx.log"
+  format: "json"
+
+server:
+  address: "0.0.0.0"
+  port: 8080
+  timeout_seconds: 30
+  max_request_size: 1048576
+  max_concurrent_requests: 100
+
+cache:
+  enabled: true
+  type: "redis"
+  host: "redis-server"
+  port: 6379
+  expiration_seconds: 3600
+
+security:
+  ssl_enabled: true
+  ssl_certificate: "/etc/gx/cert.pem"
+  ssl_key: "/etc/gx/key.pem"
+  csrf_protection: true
+  allow_origins:
+    - "https://example.com"
+    - "http://localhost:3000"
+
+performance:
+  enable_profiling: true
+  enable_caching: true
+  optimizations:
+    - "inline"
+    - "bounds_check_elimination"
+    - "loop_unrolling"
+    
