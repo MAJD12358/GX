@@ -1,5 +1,5 @@
- # Use an official GCD+ runtime as a base image
-FROM gcdplus-runtime:latest
+ # Use GCD+ as a base image
+FROM gcdplus:latest
 
 # Set the working directory to /app
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Copy the logo.png file to /app
-COPY logo.png /app/logo.png
+COPY logo.png logo.png
 
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
