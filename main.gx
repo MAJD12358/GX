@@ -28,6 +28,16 @@ $app#name[
         +image#
           "logo.png"
       ]
+      $button[
+        +text#
+          "Click Me"
+        +style#
+          $fontSize: "16px"
+          $backgroundColor: $BUTTON_COLOR
+          $color: "#ffffff"
+        +onPress#
+          [System#alert["You clicked the button!"]]
+      ]
   ]
 ]
 [#End point Gx$]
