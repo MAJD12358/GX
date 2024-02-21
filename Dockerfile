@@ -3,7 +3,7 @@ FROM ubuntu:latest as builder
 
 # Install build dependencies
 RUN apt-get update && \
-    apt-get install -y build-essential git && \
+    apt-get install -y build-essential git cmake && \
     apt-get clean
 
 # Set the working directory to /app
@@ -17,8 +17,9 @@ ARG GX_BRANCH=main
 RUN git fetch origin $GX_BRANCH && \
     git checkout $GX_BRANCH
 
-# Build GX language
-RUN make build
+# Build GX language with specific configurations
+RUN cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -B build && \
+    cmake --build build
 
 # Stage 2: Create final image
 FROM ubuntu:latest
@@ -27,7 +28,7 @@ FROM ubuntu:latest
 WORKDIR /app
 
 # Copy the GX language artifacts from the builder stage
-COPY --from=builder /app /app
+COPY --from=builder /app/build /app
 
 # Expose a port if needed
 EXPOSE 8080
@@ -44,7 +45,12 @@ RUN apt-get update && \
 COPY config/runtime-config.yaml /app/config/runtime-config.yaml
 
 # Create a non-root user for better security
-RUN useradd -m -s /bin/bash gxuser
+RUN groupadd -r gxgroup && useradd -r -g gxgroup -m -s /bin/bash gxuser
+
+# Change ownership of the application files to the non-root user
+RUN chown -R gxuser:gxgroup /app
+
+# Set the user to run the application
 USER gxuser
 
 # Command to run when the container starts
