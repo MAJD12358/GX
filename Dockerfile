@@ -10,6 +10,9 @@ COPY . /app
 # Copy the logo.png file to /app
 COPY logo.png /app/logo.png
 
+# Copy gx-config.ini to /app/config
+COPY gx-config.ini /app/config/gx-config.ini
+
 # Define build-time arguments for colors and version
 ARG PRIMARY_COLOR_GREEN="#00ff00"
 ARG SECONDARY_COLOR_PURPLE="#800080"
@@ -27,20 +30,25 @@ RUN apt-get update && apt-get install -y \
     some-dependency \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy specific configuration files
-COPY config/gx-config.ini /app/config/gx-config.ini
-
-# ... Add any other advanced configurations or dependencies here ...
+# Set environment variable for timezone
+ENV TZ=UTC
 
 # Expose the port if needed
 EXPOSE 8080
 
-# Set environment variables
-ENV TZ=UTC
-
 # Health check
 HEALTHCHECK --interval=5m --timeout=3s \
   CMD curl -f http://localhost/ || exit 1
+
+# Set labels for metadata
+LABEL maintainer="Your Name <your.email@example.com>"
+LABEL version="1.0"
+LABEL description="My advanced GX language application"
+
+# ... Add any other advanced configurations or dependencies here ...
+
+# USER directive to set a non-root user if needed
+# USER appuser
 
 # ... Add any other advanced configurations or optimizations ...
 
